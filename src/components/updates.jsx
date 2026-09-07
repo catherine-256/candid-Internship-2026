@@ -39,7 +39,6 @@ export default function Updates() {
 
   return (
     <div className="w-full max-w-lg bg-white/90 backdrop-blur-md border border-pink-200/70 rounded-3xl p-5 sm:p-6 shadow-sm transition-all">
-      {/* Header */}
       <div className="flex items-center justify-between pb-4 border-b border-pink-100 mb-4">
         <div className="flex items-center space-x-2">
           <div className="bg-pink-100 p-2 rounded-2xl text-pink-600">

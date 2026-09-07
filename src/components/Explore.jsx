@@ -22,7 +22,6 @@ export default function Explore() {
         />
       </div>
 
-      {/* Explore Grid / Feed */}
       <div className="space-y-6">
         {explorePosts.map((post) => {
           const isFollowingUser = !!following[post.username];

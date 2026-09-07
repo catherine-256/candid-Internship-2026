@@ -15,7 +15,6 @@ export default function Post({ post, isExplore = false }) {
 
   return (
     <div className="bg-white/90 backdrop-blur-md border border-pink-200/70 rounded-3xl shadow-sm mb-6 overflow-hidden">
-      {/* Header */}
       <div className="flex items-center space-x-3 p-4 border-b border-pink-100">
         <img
           src={post.user_avatar}
@@ -25,7 +24,6 @@ export default function Post({ post, isExplore = false }) {
         <span className="font-bold text-sm text-gray-900">{post.username}</span>
       </div>
 
-      {/* Image */}
       <div className="relative bg-pink-50/50">
         <img
           src={post.image_url}
@@ -34,7 +32,6 @@ export default function Post({ post, isExplore = false }) {
         />
       </div>
 
-      {/* Action Buttons */}
       <div className="p-4 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -62,16 +59,13 @@ export default function Post({ post, isExplore = false }) {
           </button>
         </div>
 
-        {/* Likes Count */}
         <p className="font-bold text-xs text-gray-900">{post.likes_count} likes</p>
 
-        {/* Caption */}
         <p className="text-xs text-gray-800 leading-relaxed">
           <span className="font-bold text-gray-900 mr-2">{post.username}</span>
           {post.caption}
         </p>
 
-        {/* Comments Section */}
         {post.comments.length > 0 && (
           <div className="space-y-1 pt-1 border-t border-pink-50">
             {post.comments.map((c) => (

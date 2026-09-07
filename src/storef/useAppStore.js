@@ -84,7 +84,6 @@ export const useAppStore = create((set, get) => ({
           };
         });
 
-        // Merge API stories with existing stories without deleting them
         const apiStories = usersRes.results.slice(0, 4).map((u, idx) => ({
           id: `api_${idx + 1}`,
           username: u.login.username,
@@ -96,9 +95,9 @@ export const useAppStore = create((set, get) => ({
         set((state) => ({
           posts: fetchedPosts,
           stories: [
-            state.stories[0], // Keep user story
-            ...INITIAL_STORIES.slice(1), // Keep initial default stories
-            ...apiStories // Append fresh API stories
+            state.stories[0],
+            ...INITIAL_STORIES.slice(1), 
+            ...apiStories 
           ]
         }));
       }
@@ -262,10 +261,8 @@ export const useAppStore = create((set, get) => ({
       let updatedPosts = [...state.posts];
 
       if (!isCurrentlyFollowing) {
-        // Look for existing posts by this user in explorePosts
         let userPosts = state.explorePosts.filter((p) => p.username === username);
 
-        // If no posts exist in explore, generate a post for them automatically so they appear in Home
         if (userPosts.length === 0) {
           const avatar = customUserObj?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150';
           userPosts = [{
@@ -287,7 +284,6 @@ export const useAppStore = create((set, get) => ({
           }
         });
       } else {
-        // Unfollowing removes their posts from the home feed
         updatedPosts = updatedPosts.filter((p) => p.username !== username || p.username === state.userProfile.username);
       }
 
